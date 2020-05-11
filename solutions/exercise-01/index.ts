@@ -18,7 +18,7 @@ Exercise:
     it in persons array and logPerson function in order to fix
     all the TS errors.
 
-Run this solution:
+Run:
 
     npm run solution-1
 

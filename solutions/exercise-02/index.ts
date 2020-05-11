@@ -18,11 +18,11 @@ Exercise:
 
 Run:
 
-    npm run exercise-2
+    npm run solution-2
 
     - OR -
 
-    yarn -s exercise-2
+    yarn -s solution-2
 
 */
 
@@ -65,7 +65,7 @@ const persons: Person[] = [
 
 function logPerson(person: Person) {
     let additionalInformation: string;
-    if (person.role) {
+    if ('role' in person) {
         additionalInformation = person.role;
     } else {
         additionalInformation = person.occupation;

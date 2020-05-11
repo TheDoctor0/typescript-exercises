@@ -16,7 +16,7 @@ Exercise:
 
     Given the data, define the interface "User" and use it accordingly.
 
-Run this exercise:
+Run:
 
     npm run exercise-0
 
