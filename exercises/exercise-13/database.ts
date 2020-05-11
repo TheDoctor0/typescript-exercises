@@ -14,7 +14,7 @@ export type Query<T extends object> =
     | {$text: string} 
     | ({[field in QueryableKeys<T>] ?: FieldOperator});
 
-function matchOp(operator: FieldOperator, value: Scalar) {
+function matchOperator(operator: FieldOperator, value: Scalar) {
     if ('$eq' in operator) {
         return value === operator['$eq'];
     } else if ('$gt' in operator) {
@@ -47,7 +47,7 @@ function matches<T extends object>(
     }
 
     return Object.entries(query).every(
-        ([key, value]) => matchOp(value as FieldOperator, record[key as keyof T] as any)
+        ([key, value]) => matchOperator(value as FieldOperator, record[key as keyof T] as any)
     );
 }
 
