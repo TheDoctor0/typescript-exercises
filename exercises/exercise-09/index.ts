@@ -26,11 +26,11 @@ Exercise:
 
 Run:
 
-    npm run exercise-9
+    npm run 9
 
     - OR -
 
-    yarn -s exercise-9
+    yarn -s 9
 
 */
 
@@ -71,8 +71,13 @@ type ApiResponse<T> = (
     }
 );
 
-function promisify(arg: unknown): unknown {
-    return null;
+function promisify<T>(fn: (callback: (arg: ApiResponse<T>) => void) => void): () => Promise<T> {
+    return () => new Promise<T>((resolve, reject) => {
+        fn(result => result.status === 'success'
+            ? resolve(result.data)
+            : reject(new Error(result.error))
+        );
+    });
 }
 
 const oldApi = {

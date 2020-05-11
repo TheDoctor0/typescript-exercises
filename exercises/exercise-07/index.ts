@@ -19,11 +19,11 @@ Higher difficulty exercise:
 
 Run:
 
-    npm run exercise-7
+    npm run 7
 
     - OR -
 
-    yarn -s exercise-7
+    yarn -s 7
 
 */
 
@@ -41,8 +41,7 @@ interface Admin {
     role: string;
 }
 
-type PowerUser = unknown;
-
+type PowerUser = Omit<User, 'type'> & Omit<Admin, 'type'> & { type: 'powerUser' };
 type Person = User | Admin | PowerUser;
 
 const persons: Person[] = [

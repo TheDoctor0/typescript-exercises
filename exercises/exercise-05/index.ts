@@ -25,11 +25,11 @@ Higher difficulty bonus exercise:
 
 Run:
 
-    npm run exercise-5
+    npm run 5
 
     - OR -
 
-    yarn -s exercise-5
+    yarn -s 5
 
 */
 
@@ -58,17 +58,23 @@ const persons: Person[] = [
     { type: 'admin', name: 'Agent Smith', age: 23, role: 'Anti-virus engineer' }
 ];
 
+function getObjectKeys<T extends object>(o: T): (keyof T)[] {
+    return Object.keys(o) as (keyof T)[];
+}
+
 function logPerson(person: Person) {
     console.log(
         ` - ${chalk.green(person.name)}, ${person.age}, ${person.type === 'admin' ? person.role : person.occupation}`
     );
 }
 
-function filterPersons(persons: Person[], personType: string, criteria: unknown): unknown[] {
+function filterPersons(persons: Person[], personType: 'user', criteria: Partial<User>): User[]
+function filterPersons(persons: Person[], personType: 'admin', criteria: Partial<Admin>): Admin[]
+function filterPersons(persons: Person[], personType: string, criteria: Partial<Person>): unknown[] {
     return persons
         .filter((person) => person.type === personType)
         .filter((person) => {
-            let criteriaKeys = Object.keys(criteria) as (keyof Person)[];
+            let criteriaKeys = getObjectKeys(criteria);
             return criteriaKeys.every((fieldName) => {
                 return person[fieldName] === criteria[fieldName];
             });

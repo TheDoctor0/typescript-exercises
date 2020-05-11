@@ -48,11 +48,11 @@ Higher difficulty bonus exercise:
 
 Run:
 
-    npm run 11
+    npm run exercise-11
 
     - OR -
 
-    yarn -s 11
+    yarn -s exercise-11
 
 */
 

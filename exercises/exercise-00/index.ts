@@ -18,15 +18,21 @@ Exercise:
 
 Run:
 
-    npm run exercise-0
+    npm run 0
 
     - OR -
 
-    yarn -s exercise-0
+    yarn -s 0
 
 */
 
-const users: unknown[] = [
+interface User {
+    name: string;
+    age: number;
+    occupation: string;
+}
+
+const users: User[] = [
     {
         name: 'Max Mustermann',
         age: 25,
@@ -39,7 +45,7 @@ const users: unknown[] = [
     }
 ];
 
-function logPerson(user: unknown) {
+function logPerson(user: User) {
     console.log(` - ${chalk.green(user.name)}, ${user.age}`);
 }
 
