@@ -16,13 +16,13 @@ Exercise:
 
     Given the data, define the interface "User" and use it accordingly.
 
-Run this exercise:
+Run this solution:
 
-    npm run 0
+    npm run solution-0
 
     - OR -
 
-    yarn -s 0
+    yarn -s solution-0
 
 */
 
